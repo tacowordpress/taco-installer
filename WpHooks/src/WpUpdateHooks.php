@@ -259,7 +259,6 @@ class WpUpdateHooks
         echo "\r\n";
         echo "\r\n";
         echo "Please edit the \".env\" file in the non public root by replacing empty values. \r\n";
-        echo "Add salts to the \"wp-config.php\" file \r\n";
         echo "Important: The \".env\" file should not be part of the project's repository\r\n";
         echo " and should be added to your \".gitignore\" file.\r\n";
         echo 'Keep your database info somewhere for safe keeping!';
