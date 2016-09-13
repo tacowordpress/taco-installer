@@ -21,7 +21,7 @@ class WpUpdateHooks
     public static $boilerplatePreviouslyInstalled = false;
     public static $wordPressAlreadyInstalled = false;
     
-    public static function preAnything(Event $event) 
+    public static function preAnything(Event $event)
     {
         self::checkAndMoveEnvFile($event);
         // is WordPress setup with all files in place?
@@ -47,14 +47,14 @@ class WpUpdateHooks
         return;
     }
     
-    public static function checkAndMoveEnvFile(Event $event) 
+    public static function checkAndMoveEnvFile(Event $event)
     {
         if(!file_exists(__DIR__.'/../../.env')) {
             copy(__DIR__.'/../../boilerplate/.env', __DIR__.'/../../.env');
         }
     }
     
-    public static function postAnything(Event $event) 
+    public static function postAnything(Event $event)
     {
         if(self::$wordPressAlreadyInstalled === true) {
             
@@ -274,9 +274,9 @@ class WpUpdateHooks
         echo "\r\n";
         
         // cleanup
-        if(file_exists(__DIR__.'/../../README.md')) {
-            rename(__DIR__.'/../../README.md', __DIR__.'/../../boilerplate-readme.md');
-        }
+        // if(file_exists(__DIR__.'/../../README.md')) {
+        //     rename(__DIR__.'/../../README.md', __DIR__.'/../../boilerplate-readme.md');
+        // }
         if(!self::symlinkExists($link = __DIR__.'/../../shortcut-taco-theme')) {
             symlink(__DIR__.'/../../html/wp-content/themes/taco-theme', $link);
         }
