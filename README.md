@@ -46,7 +46,7 @@ The installer comes with a few other features:
 
 /* end config options instructions */
 
-### Deploying
+## Deployment Instructions
 
 @Jasand TBD...
 
