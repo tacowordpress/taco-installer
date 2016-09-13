@@ -57,13 +57,13 @@ There are a few custom configuration options in taco-installer, mostly involving
 
 /* start deploy instructions */
 
-WordPress core files are left out of version control to allow for WP to auto-update on production servers by default, as specified in the .gitignore of this project. Auto-updating DB option is specified on the .env file. Setup your version control to deploy the taco-installer files to a new server.
+WordPress core files are left out of version control to allow for WP to auto-update on production servers by default, as specified in the `.gitignore` of this project. Auto-updating DB option is specified on the `.env` file. Setup your version control to deploy the taco-installer files to a new server.
 
 1. deploy taco-installer to a new server
 2. ssh onto new server and run, just once, `composer install` in the root of the taco-installer
   * This will perform all of the above actions on a new server,
   * If you run composer install more than once in the root of the taco-installer, there are security checks as to not override files if they’ve already been installed.
-3. configure your .env file to point to the new server’s database
+3. configure your `.env` file to point to the new server’s database
 4. if the server is a staging environment, follow the configuration instructions for HTTP Password Config Options
 5. for composer updates in the theme, cd into the theme’s `/app/core` directory,
   * run `composer update`
