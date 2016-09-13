@@ -20,10 +20,10 @@ composer install
 Running this command automates the following tasks:
 * installs the latest version of WordPress
 * installs and sets up the [Taco Theme](https://github.com/tacowordpress/taco-theme)
-  * installs all necessary composer packages for Taco Theme to run correctly, most importantly, [tacowordpress](https://github.com/tacowordpress/tacowordpress)
+  * (installs all necessary composer packages for Taco Theme to run correctly, most importantly, [tacowordpress](https://github.com/tacowordpress/tacowordpress))
 * applies salts to the `wp-config.php` file
 * loads database credentials from a `.env` file for easy setup and obfuscation
-  * ignored in .gitignore for better security
+  * (ignored in .gitignore for better security)
 
 After running `composer install`, complete the following:
 
