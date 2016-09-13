@@ -30,7 +30,7 @@ Next,
 2. Complete the welcome to WP steps once visiting your localhost, login to the cms
 3. before you do anything, activate the Taco Theme under Appearance -> Themes.
 
-For information about getting started with the Taco Theme, view the theme’s [README.md file](http://google.com).
+For information about getting started with the Taco Theme's frontend task runners, view the theme’s [README.md file](https://github.com/tacowordpress/taco-theme/tree/master/src).
 
 ## More Features
 
