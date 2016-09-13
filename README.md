@@ -33,6 +33,8 @@ After running `composer install`, complete the following:
 
 For information about getting started with the Taco Theme's frontend task runners, view the theme’s [README.md file](https://github.com/tacowordpress/taco-theme/tree/master/src).
 
+For information on how to use tacowordpress, check out the [repo](https://github.com/tacowordpress/tacowordpress). For complete documentation, see the [wiki](https://github.com/tacowordpress/tacowordpress/wiki).
+
 ## More Features
 
 The taco-installer comes with a few other features:
