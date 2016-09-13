@@ -2,7 +2,7 @@
 <img alt="Taco Installer Image By Michael Herring" src="https://raw.githubusercontent.com/tacowordpress/taco-installer/master/image-taco-installer.gif?cachebust=234233242" width="300">
 > Automate your WP / Taco Theme workflow setup.
 
-Save time by using the taco-installer to get setup with a taco-theme wrapped in the latest WordPress, add salts, and keep DB creds private, all automated. More features include manual control of httpd passwords on a server, using a non-committed .env file for DB creds, and a robust .htaccess file.
+Save time by using the taco-installer to get setup with a Taco Theme wrapped in the latest WordPress, add salts, and keep DB creds private, all automated. More features include: manual control of httpd passwords on a server, using a non-committed .env file for DB creds, and a robust .htaccess file.
 
 ## Requirements
 * [Composer](https://getcomposer.org/)
@@ -21,10 +21,10 @@ Running this command automates the following tasks:
 * installs the latest version of WordPress
 * installs and sets up the [Taco Theme](https://github.com/tacowordpress/taco-theme)
   * installs all necessary composer packages for Taco Theme to run correctly, most importantly, [tacowordpress](https://github.com/tacowordpress/tacowordpress)
-* applies salts to the wp-config.php file
+* applies salts to the `wp-config.php` file
 * loads database credentials from a .env file for easy setup and obfuscation (ignored in .gitignore for better security)
 
-Next,
+After running `composer install`, complete the following:
 
 1. update the .env file with your DB credentials, configure your localhost and create the empty database.
 2. Complete the welcome to WP steps once visiting your localhost, login to the cms
@@ -34,7 +34,7 @@ For information about getting started with the Taco Theme's frontend task runner
 
 ## More Features
 
-The installer comes with a few other features:
+The taco-installer comes with a few other features:
 
 * includes an .htaccess file with helpful variables for:
   * caching
