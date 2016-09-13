@@ -4,7 +4,7 @@
 Save time by using the taco-installer to get setup with a taco-theme wrapped in the latest WordPress, add salts, and keep DB creds private, all automated. Additional manual options include controlling httpd passwords on a server, using a .env file for DB creds, and more.
 
 ## Requirements
-* [composer](https://getcomposer.org/)
+* [Composer](https://getcomposer.org/)
 
 ## Installing / Getting started
 
@@ -19,7 +19,7 @@ composer install
 Running this command automates the following tasks:
 * installs the latest version of WordPress
 * installs and sets up the [Taco Theme](https://github.com/tacowordpress/taco-theme)
-..* installs all necessary composer packages for Taco Theme to run correctly, most importantly, [TacoWordpress](https://github.com/tacowordpress/tacowordpress)
+  * installs all necessary composer packages for Taco Theme to run correctly, most importantly, [TacoWordpress](https://github.com/tacowordpress/tacowordpress)
 * applies salts to the wp-config.php file
 * loads database credentials from a .env file for easy setup and obfuscation (ignored in .gitignore for better security)
 
@@ -34,8 +34,8 @@ For information about getting started with the Taco Theme, view the theme’s [R
 The installer comes with a few other features:
 
 * includes an .htaccess file with helpful variables for:
-..* caching code
-..* environment variables
+  * caching code
+  * environment variables
 * adding http password authentication configuration options
 
 ## Configuration
@@ -57,8 +57,8 @@ WordPress core files are left out of version control to allow for WP to auto-upd
 
 1. deploy taco-installer to a new server
 2. ssh onto new server and run, just once, `composer install` in the root of the taco-installer
-..* This will perform all of the above actions on a new server,
-..* If you run composer install more than once in the root of the taco-installer, there are security checks as to not override files if they’ve already been installed.
+  * This will perform all of the above actions on a new server,
+  * If you run composer install more than once in the root of the taco-installer, there are security checks as to not override files if they’ve already been installed.
 3. configure your .env file to point to the new server’s database
 4. if the server is a staging environment, follow the configuration instructions for HTTP Password Config Options
 5. for composer updates in the theme, cd into the theme’s `/app/core` directory, and run `composer install` or `composer update` there
