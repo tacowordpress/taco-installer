@@ -27,7 +27,7 @@ Running this command automates the following tasks:
 
 After running `composer install`, complete the following:
 
-1. update the .env file with your DB credentials, configure your localhost and create the empty database.
+1. update the `.env` file with your DB credentials, configure your localhost and setup the database
 2. Complete the welcome to WP steps once visiting your localhost, login to the cms
 3. before you do anything, activate the Taco Theme under Appearance -> Themes.
 
@@ -37,7 +37,7 @@ For information about getting started with the Taco Theme's frontend task runner
 
 The taco-installer comes with a few other features:
 
-* includes an .htaccess file with helpful variables for:
+* includes an `.htaccess` file with helpful variables for:
   * caching
   * environment variables
 * adding http password authentication configuration options
