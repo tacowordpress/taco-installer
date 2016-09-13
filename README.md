@@ -11,7 +11,7 @@ Save time by using the taco-installer to get setup with a taco-theme wrapped in 
 
 Getting started is easy.
 
-1. Download the taco-installer, cd into it’s root and run
+Download the taco-installer, cd into it’s root and run
 
 ```shell
 composer install
@@ -24,9 +24,11 @@ Running this command automates the following tasks:
 * applies salts to the wp-config.php file
 * loads database credentials from a .env file for easy setup and obfuscation (ignored in .gitignore for better security)
 
-2. Next, update the .env file with your DB credentials, configure your localhost and create the empty database.
+Next,
 
-3. Complete the welcome to WP steps once visiting your localhost, login - and before you do anything, activate the Taco Theme.
+1. update the .env file with your DB credentials, configure your localhost and create the empty database.
+2. Complete the welcome to WP steps once visiting your localhost, login to the cms
+3. before you do anything, activate the Taco Theme.
 
 For information about getting started with the Taco Theme, view the theme’s [README.md file](http://google.com).
 
