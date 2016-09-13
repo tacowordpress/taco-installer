@@ -1,6 +1,6 @@
 # Taco Installer
 
-<img alt="Taco Installer Image By Michael Herring" src="https://raw.githubusercontent.com/tacowordpress/taco-installer/master/image-taco-installer.gif" width="300">
+<img alt="Taco Installer Image By Michael Herring" src="https://raw.githubusercontent.com/tacowordpress/taco-installer/master/image-taco-installer.gif?cachebust=234233242" width="300">
 
 ##What does the Taco Installer do?
  * Gets the latest version of WordPress
