@@ -42,7 +42,7 @@ The installer comes with a few other features:
 
 ## Configuration
 
-@Jasand TBD…
+@Jasand TBD...
 
 ### HTTP Password Config Options
 /* start config options instructions */
@@ -51,7 +51,7 @@ The installer comes with a few other features:
 
 ### Deploying / Publishing
 
-@Jasand TBD.
+@Jasand TBD...
 
 /* start deploy instructions */
 
