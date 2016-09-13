@@ -20,7 +20,7 @@ composer install
 Running this command automates the following tasks:
 * installs the latest version of WordPress
 * installs and sets up the [Taco Theme](https://github.com/tacowordpress/taco-theme)
-  * installs all necessary composer packages for Taco Theme to run correctly, most importantly, [TacoWordpress](https://github.com/tacowordpress/tacowordpress)
+  * installs all necessary composer packages for Taco Theme to run correctly, most importantly, [tacowordpress](https://github.com/tacowordpress/tacowordpress)
 * applies salts to the wp-config.php file
 * loads database credentials from a .env file for easy setup and obfuscation (ignored in .gitignore for better security)
 
@@ -50,8 +50,6 @@ The installer comes with a few other features:
 
 @Jasand TBD...
 
-/* start deploy instructions */
-
 WordPress core files are left out of version control to allow for WP to auto-update on production servers by default, as specified in the `.gitignore` of this project. Auto-updating DB option is specified on the `.env` file. Setup your version control to deploy the taco-installer files to a new server.
 
 1. deploy taco-installer to a new server
@@ -62,5 +60,3 @@ WordPress core files are left out of version control to allow for WP to auto-upd
 4. if the server is a staging environment, follow the configuration instructions for HTTP Password Config Options
 5. for composer updates in the theme, cd into the theme’s `/app/core` directory,
   * run `composer update`
-
-/* end deploy instructions */
