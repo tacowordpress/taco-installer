@@ -28,7 +28,7 @@ Next,
 
 1. update the .env file with your DB credentials, configure your localhost and create the empty database.
 2. Complete the welcome to WP steps once visiting your localhost, login to the cms
-3. before you do anything, activate the Taco Theme.
+3. before you do anything, activate the Taco Theme under Appearance -> Themes.
 
 For information about getting started with the Taco Theme, view the theme’s [README.md file](http://google.com).
 
