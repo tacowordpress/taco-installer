@@ -1,7 +1,7 @@
 # Taco Installer
 > Automate your WP / Taco Theme workflow setup.
 
-Save time by using the taco-installer to get setup with a taco-theme wrapped in the latest WordPress, add salts, and keep DB creds private, all automated. Additional manual options include controlling httpd passwords on a server, using a .env file for DB creds, and more.
+Save time by using the taco-installer to get setup with a taco-theme wrapped in the latest WordPress, add salts, and keep DB creds private, all automated. More features include manual control of httpd passwords on a server, using a non-committed .env file for DB creds, and a robust .htaccess file.
 
 ## Requirements
 * [Composer](https://getcomposer.org/)
@@ -36,7 +36,7 @@ For information about getting started with the Taco Theme, view the theme’s [R
 The installer comes with a few other features:
 
 * includes an .htaccess file with helpful variables for:
-  * caching code
+  * caching
   * environment variables
 * adding http password authentication configuration options
 
@@ -44,18 +44,20 @@ The installer comes with a few other features:
 
 @Jasand TBD...
 
+There are a few custom configuration options in taco-installer, mostly involving the .env file, the .htaccess, as well as x, y, z.
+
 ### HTTP Password Config Options
 /* start config options instructions */
 
 /* end config options instructions */
 
-### Deploying / Publishing
+### Deploying
 
 @Jasand TBD...
 
 /* start deploy instructions */
 
-WordPress core files are left out of version control to allow for WP to auto-update on production servers, as specified in the .gitignore of this project. Setup your version control to deploy the taco-installer files to a new server.
+WordPress core files are left out of version control to allow for WP to auto-update on production servers by default, as specified in the .gitignore of this project. Auto-updating DB option is specified on the .env file. Setup your version control to deploy the taco-installer files to a new server.
 
 1. deploy taco-installer to a new server
 2. ssh onto new server and run, just once, `composer install` in the root of the taco-installer
