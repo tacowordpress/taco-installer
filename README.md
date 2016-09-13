@@ -41,13 +41,7 @@ The installer comes with a few other features:
   * environment variables
 * adding http password authentication configuration options
 
-## Configuration
-
-@Jasand TBD...
-
-There are a few custom configuration options in taco-installer, mostly involving the .env file, the .htaccess, as well as x, y, z.
-
-### HTTP Password Config Options
+### HTTP Password Configuration Options
 /* start config options instructions */
 
 /* end config options instructions */
