@@ -45,9 +45,14 @@ The taco-installer comes with a few other features:
 * adding http password authentication configuration options
 
 ### HTTP Password Configuration Options
-/* start config options instructions */
 
-/* end config options instructions */
+If you are running your site on an environment that requires password protection via the browser (htpasswd), you can set up authentication through a php script provided in the tools directory of this repo. Please follow these steps.
+
+1. ssh onto the server, and cd into the directory above "html". This will reflect the root folder of this repo.
+2. cd into "tools"
+3. type "`php htpass.php`" and follow follow the prompt
+
+Note: This script will not work if there is already something in "html/.htaccess" pointing to a password file or a "htpasswd" file already exists.
 
 ## Deployment Instructions
 
