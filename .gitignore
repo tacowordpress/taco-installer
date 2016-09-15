@@ -1,16 +1,25 @@
+# wordpress core
 /html/*
+
+# commit the app
 !/html/wp-content/
 !/html/.htaccess
 !/html/wp-config.php
 shortcut-taco-theme
 /.env
 
-# ignore composer dir
+# composer dir
 /vendor
-/html/wp-content/themes/taco-theme/app/core/vendor/*
+
+# wp uploads
 /html/wp-content/uploads/*
-node_modules
-/.sass-cache
+
+# moved these to the taco-theme .gitignore
+# /html/wp-content/themes/taco-theme/app/core/vendor/*
+# node_modules
+# /.sass-cache
+# *.css.map
+# *.js.map
 
 *.log
 *.zip
@@ -33,6 +42,5 @@ Thumbs.db
 *.o
 *.so
 
-.codekit-cache
-*.css.map
-*.js.map
+
+
