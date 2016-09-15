@@ -45,9 +45,14 @@ The taco-installer comes with a few other features:
 * adding http password authentication configuration options
 
 ### HTTP Password Configuration Options
-/* start config options instructions */
 
-/* end config options instructions */
+If you are running your site on an environment that requires password protection via the browser (htpasswd), you can set up authentication through a php script provided in the tools directory of this repo. Please follow these steps.
+
+1. ssh onto the server, and cd into the directory above "html". This will reflect the root folder of this repo.
+2. cd into "tools"
+3. type "`php htpass.php`" and follow follow the prompt
+
+Note: This script will not work if there is already something in "html/.htaccess" pointing to a password file or a "htpasswd" file already exists.
 
 ## Deployment Instructions
 
@@ -60,6 +65,6 @@ WordPress core files are left out of version control to allow for WP to auto-upd
   * This will perform all of the above actions on a new server,
   * If you run composer install more than once in the root of the taco-installer, there are security checks as to not override files if they’ve already been installed.
 3. configure your `.env` file to point to the new server’s database
-4. if the server is a staging environment, follow the configuration instructions for HTTP Password Config Options
+4. if the server requires password authentication through the browser (staging/dev environments), follow the configuration instructions for HTTP Password Config Options
 5. for composer updates in the theme, cd into the theme’s `/app/core` directory,
   * run `composer update`
