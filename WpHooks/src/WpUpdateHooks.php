@@ -20,7 +20,7 @@ class WpUpdateHooks
 {
     public static $boilerplatePreviouslyInstalled = false;
     public static $wordPressAlreadyInstalled = false;
-    
+
     public static function preAnything(Event $event)
     {
         self::checkAndMoveEnvFile($event);
@@ -46,18 +46,18 @@ class WpUpdateHooks
         $event->getIO()->write('Nothing to do in pre-install or pre-update. continuing...');
         return;
     }
-    
+
     public static function checkAndMoveEnvFile(Event $event)
     {
         if(!file_exists(__DIR__.'/../../.env')) {
             copy(__DIR__.'/../../boilerplate/.env', __DIR__.'/../../.env');
         }
     }
-    
+
     public static function postAnything(Event $event)
     {
         if(self::$wordPressAlreadyInstalled === true) {
-            
+
             $event->getIO()->write('...done');
             return;
         }
@@ -69,20 +69,21 @@ class WpUpdateHooks
         self::doFreshInstall($event);
         return;
     }
-    
+
     public static function doFreshInstall(Event $event)
     {
         self::updateWpConfig($event);
         self::copyTheme($event);
         self::setSalts($event);
         self::installComposerInTheme($event);
+        self::configureGit($event);
         self::printRemainingInstructions($event);
     }
-    
+
     public static function setSalts(Event $event)
     {
         $event->getIO()->write('Applying salts to wp-config.php...');
-        
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
@@ -91,11 +92,11 @@ class WpUpdateHooks
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $data = curl_exec($ch);
         curl_close($ch);
-        
+
         $wp_config_contents = file_get_contents(
             $wp_config_path = __DIR__.'/../../html/wp-config.php'
         );
-    
+
         $wp_config_contents = preg_replace(
             '/(\/\*\*#@\+)(.|\s|\r|\n)*?(\/\*\*#@-\*\/)/',
             $data,
@@ -130,9 +131,9 @@ class WpUpdateHooks
         }
         self::deleteTreeWithSymlinks(__DIR__.'/../../html/wp-content');
         self::recursiveCopy(__DIR__.'/../../boilerplate/wp-content', __DIR__.'/../../html/wp-content');
-        
+
         copy(__DIR__.'/../../boilerplate/.htaccess', __DIR__.'/../../html/.htaccess');
-        
+
         if (!file_exists($wp_config = __DIR__.'/../../html/wp-config.php')) {
             copy(__DIR__.'/../../boilerplate/wp-config.php', __DIR__.'/../../html/wp-config.php');
         }
@@ -145,7 +146,7 @@ class WpUpdateHooks
         if (file_exists(__DIR__.'/../../html/wp-config-sample.php')) {
             unlink(__DIR__.'/../../html/wp-config-sample.php');
         }
-        
+
     }
 
     public static function getBashValue($event, $prompt)
@@ -184,45 +185,45 @@ class WpUpdateHooks
     public static function doBoilerplateAlreadySetupScript(Event $event)
     {
         $event->getIO()->write('The boilerplate was previously setup.');
-        
-        
-        
+
+
+
         if(!file_exists(__DIR__.'/../../html')) {
             $event->getIO()->write('Please run "composer update" instead of "install"');
             $event->stopPropagation();
             return;
         }
-        
+
         if(file_exists($wp_content_dir = __DIR__.'/../../html/wp-content')) {
             self::deleteTreeWithSymlinks($wp_content_dir);
         }
-        
+
         if(file_exists($temp_folder = __DIR__.'/../../wp-temp')) {
             rename($temp_folder.'/.htaccess', __DIR__.'/../../html/.htaccess');
             rename($temp_folder.'/wp-content', __DIR__.'/../../html/wp-content');
             rename($temp_folder.'/wp-config.php', __DIR__.'/../../html/wp-config.php');
         }
-        
+
         if(file_exists($wp_temp = __DIR__.'/../../wp-temp')) {
             self::deleteTreeWithSymlinks($wp_temp);
         }
-        
+
         if (file_exists($composer_dir = __DIR__.'/../../html/composer.json')) {
             unlink($composer_dir);
         }
-        
+
         if (file_exists($wp_config_sample = __DIR__.'/../../html/wp-config-sample.php')) {
             unlink($wp_config_sample );
         }
-        
+
         if (file_exists($html_temp = __DIR__.'/../../html_temp')) {
             self::deleteTree($html_temp);
         }
-        
+
         if(!self::symlinkExists($link = __DIR__.'/../../shortcut-taco-theme')) {
             symlink(__DIR__.'/../../html/wp-content/themes/taco-theme', $link);
         }
-        
+
         return;
     }
 
@@ -243,7 +244,26 @@ class WpUpdateHooks
         $c[] = "cd ".__DIR__."/../../html/wp-content/themes/taco-theme/app/core/ \r\n";
         $c[] = "php ".$composer_path. " install";
         exec(join('',$c));
-        
+    }
+
+    public static function configureGit()
+    {
+      // Run the git init script if we're in a git repo
+      if (file_exists(__DIR__. "/../../.git")) {
+        echo "Running git configuration script\r\n";
+
+        $init_script = __DIR__ . "/../../html/wp-content/themes/taco-theme/init";
+        chmod($init_script, 0744);
+        exec($init_script);
+      } else {
+        echo "\r\n\033[1;33m";
+        echo "WARNING: No Git repo was set up so the init script was not run.\r\n";
+        echo "You will end up getting conflicts in your minified js and css files.\r\n";
+        echo "To fix this, run shortcut-taco-theme/init after creating a git repo.\r\n";
+        echo "\033[0m\r\n";
+      }
+
+
     }
 
     public static function symlinkExists($path)
@@ -272,7 +292,7 @@ class WpUpdateHooks
         echo 'Keep your database info somewhere for safe keeping!';
         echo "\r\n";
         echo "\r\n";
-        
+
         // cleanup
         // if(file_exists(__DIR__.'/../../README.md')) {
         //     rename(__DIR__.'/../../README.md', __DIR__.'/../../boilerplate-readme.md');
