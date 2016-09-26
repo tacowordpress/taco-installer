@@ -223,6 +223,8 @@ class WpUpdateHooks
         if(!self::symlinkExists($link = __DIR__.'/../../shortcut-taco-theme')) {
             symlink(__DIR__.'/../../html/wp-content/themes/taco-theme', $link);
         }
+        
+        self::installComposerInTheme($event);
 
         return;
     }
