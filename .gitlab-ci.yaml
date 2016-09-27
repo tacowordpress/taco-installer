@@ -1,0 +1,46 @@
+variables:
+  STAGING_PATH: STAGING_PATH #user@server:/path/to/site
+  PRODUCTION_PATH: PRODUCTION_PATH
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  cache:
+    paths:
+    - html/wp-content/themes/taco-theme/node_modules/
+  artifacts:
+    name: dist
+    paths:
+      - html/wp-content/themes/taco-theme/_/dist
+  script:
+    - cd html/wp-content/themes/taco-theme
+    - npm install
+    - webpack -p
+
+staging:
+  stage: deploy
+  environment: staging
+  dependencies:
+    - build
+  only:
+    - develop
+  script:
+    - find . -type f -exec chmod 600 {} +
+    - find . -type d -exec chmod 700 {} +
+    - rsync -avz --exclude 'html/wp-content/themes/taco-theme/node_modules' ./* $STAGING_PATH
+
+production:
+  stage: deploy
+  environment: production
+  when: manual
+  dependencies:
+    - build
+  only:
+    - master
+  script:
+    - find . -type f -exec chmod 600 {} +
+    - find . -type d -exec chmod 700 {} +
+    - rsync -avz --exclude 'html/wp-content/themes/taco-theme/node_modules' ./* $PRODUCTION_PATH

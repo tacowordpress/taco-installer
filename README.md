@@ -68,3 +68,9 @@ WordPress core files are left out of version control to allow for WP to auto-upd
 4. if the server requires password authentication through the browser (staging/dev environments), follow the configuration instructions for HTTP Password Config Options
 5. for composer updates in the theme, cd into the theme’s `/app/core` directory,
   * run `composer update`
+
+## Gitlab Integration
+Gitlab can build and run integrations automatically when you push to it.  Currently, the boilerplate file is set up to handle pushes to the `develop` branch automatically and `master` manually.
+
+1. Edit the .gitlab-ci.yaml and put appropriate ssh paths into both the `STAGING_PATH` and `PRODUCTION_PATH` fields.
+2. Set up the Gitlab integration on both the server and Gitlab project.  TODO: Update when necessary @Ian
