@@ -9,6 +9,7 @@ stages:
 build:
   stage: build
   cache:
+    key: "$CI_BUILD_REF_NAME"
     paths:
     - html/wp-content/themes/taco-theme/node_modules/
   artifacts:
