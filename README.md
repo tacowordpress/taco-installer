@@ -73,4 +73,4 @@ WordPress core files are left out of version control to allow for WP to auto-upd
 Gitlab can build and run integrations automatically when you push to it.  Currently, the boilerplate file is set up to handle pushes to the `develop` branch automatically and `master` manually.
 
 1. Edit the .gitlab-ci.yaml and put appropriate ssh paths into both the `STAGING_PATH` and `PRODUCTION_PATH` fields.
-2. Set up the Gitlab integration on both the server and Gitlab project.  TODO: Update when necessary @Ian
+2. Set up the Gitlab integration on both the server and Gitlab project.  Go to the runners tab under your Gitlab project, and follow the instructions to set up your runner.  In general, you want to log into the staging server as `root`, run gitlab-runner register, and follow the prompts.  You generally want to enter `lofiiterstate/node` as the image, and `docker` as the executor.
