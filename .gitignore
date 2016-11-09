@@ -11,6 +11,9 @@ shortcut-taco-theme
 # composer dir
 /vendor
 
+# taco tests
+/html/wp-content/themes/taco-theme/app/core/vendor/tacowordpress/tacowordpress/tests
+
 # wp uploads
 /html/wp-content/uploads/*
 
