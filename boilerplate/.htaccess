@@ -1,6 +1,13 @@
 # fail-safe in case the conf file doesn't have it
 Options All -Indexes
 
+# Always allow access to wp-cron
+Order deny,allow
+Satisfy Any
+<FilesMatch "^wp-cron\.php$">
+  Allow from all
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
 RewriteEngine on
 
