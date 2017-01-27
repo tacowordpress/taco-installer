@@ -44,6 +44,13 @@ define('DB_HOST',     getenv('DB_HOST'));
 define('DB_NAME',     getenv('DB_NAME'));
 define('SAVEQUERIES', (bool) getenv('DB_SAVE_QUERIES'));
 
+
+/** no errors on production **/
+if(ENVIRONMENT === ENVIRONMENT_PROD) {
+  error_reporting(0);
+  @ini_set('display_errors', 0);
+}
+
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
 
