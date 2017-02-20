@@ -27,7 +27,6 @@ require_once __DIR__.'/../vendor/autoload.php';
    'DB_PASS',
    'DB_NAME',
    'DB_SAVE_QUERIES',
-   'WP_AUTO_UPDATE_CORE',
    'WP_DEBUG'
   ])->notEmpty();
 
@@ -99,7 +98,8 @@ $table_prefix  = getenv('DB_TABLE_PREFIX');
  */
 define('WP_DEBUG',  (bool) getenv('WP_DEBUG'));
 
-define('WP_AUTO_UPDATE_CORE', (bool) getenv('WP_AUTO_UPDATE_CORE'));
+# define('WP_AUTO_UPDATE_CORE', (bool) getenv('WP_AUTO_UPDATE_CORE'));
+define('WP_AUTO_UPDATE_CORE', 'minor');
 
 /* That's all, stop editing! Happy blogging. */
 
